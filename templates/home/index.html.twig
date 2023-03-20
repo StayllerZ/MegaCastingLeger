@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 0.5em;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+</style>
+
+<div class="example-wrapper">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Date Debut</th>
+            <th>Date Fin</th>
+            <th>Reference</th>
+            <th>Localisation</th>
+            <th>Age minimum</th>
+            <th>Age maximum</th>
+            <th>Type Contrat</th>
+            <th>Client</th>
+            <th>Metier</th>
+            <th>Détail</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for offre in offres %}
+            <tr>
+                <td>{{ offre.id }}</td>
+                <td>{{ offre.libelle }}</td>
+                <td>{{ offre.description }}</td>
+                <td>{{ offre.dateDebutCasting |date('Y-m-d H:i:s')}}</td>
+                <td>{{ offre.dateFinCasting|date('Y-m-d H:i:s') }}</td>
+                <td>{{ offre.reference }}</td>
+                <td>{{ offre.localisation }}</td>
+                <td>{{ offre.ageMinimum }}</td>
+                <td>{{ offre.ageMaximum }}</td>
+                <td>{{ offre.typeContrat.libelle }}</td>
+                <td>{{ offre.client.nom }}</td>
+                <td>{{ offre.metier.libelle }}</td>
+                <td><a href="{{ path('app_offre', {'id': offre.id}) }}">Voir détails</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
