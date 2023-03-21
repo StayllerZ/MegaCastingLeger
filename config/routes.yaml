@@ -5,3 +5,7 @@ controllers:
     type: attribute
 
 
+# config/routes.yaml
+home:
+    path: /home
+    controller: App\Controller\HomeController::index

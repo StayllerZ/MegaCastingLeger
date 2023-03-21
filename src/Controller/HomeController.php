@@ -52,7 +52,7 @@ class HomeController extends AbstractController
     }
 
     #[Route('/create', name: 'app_home')]
-    public function createOffre(Request $request)
+    public function createOffre(Request $request, EntityManagerInterface $entityManager)
     {
         $form = $this->createForm(OffreType::class);
 
@@ -60,12 +60,18 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // save the form data to the database
-            // ...
+            $offre = $form->getData();
+            $entityManager->persist($offre);
+            $entityManager->flush();
+
+            // redirect to the homepage or show a success message
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('home/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
 
 }

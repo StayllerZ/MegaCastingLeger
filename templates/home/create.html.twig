@@ -1,10 +1,129 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Create Offre</h1>
+    <style>
+        .form-container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+    </style>
+
 
     {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Create</button>
-    {{ form_end(form) }}
+    <div class="form-container">
+        <h1>Create Offre</h1>
+        <div class="form-group">
+            {{ form_label(form.libelle) }}
+            {{ form_widget(form.libelle) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.dateDebutCasting) }}
+            {{ form_widget(form.dateDebutCasting) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.dateFinCasting) }}
+            {{ form_widget(form.dateFinCasting) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.reference) }}
+            {{ form_widget(form.reference) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.localisation) }}
+            {{ form_widget(form.localisation) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.ageMinimum) }}
+            {{ form_widget(form.ageMinimum) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.ageMaximum) }}
+            {{ form_widget(form.ageMaximum) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.typeContrat) }}
+            {{ form_widget(form.typeContrat) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.civilites) }}
+            {{ form_widget(form.civilites) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.client) }}
+            {{ form_widget(form.client) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.metier) }}
+            {{ form_widget(form.metier) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.partenaireDiffusions) }}
+            {{ form_widget(form.partenaireDiffusions) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.submit) }}
+
+        </div>
+        {{ form_end(form) }}
+
+
+    </div>
 {% endblock %}
